@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Wave Detective — From sine waves to interference | Spacetime Manifolds
+    </title>
+    <meta
+      name="description"
+      content="Turn a sine-wave trace into a 3D field view, reveal circular polarization and standing-wave loops, then solve three interference puzzles."
+    />
+    <link
+      rel="canonical"
+      href="https://quantum.spacetimemanifolds.com/wave-detective"
+    />
+    <meta name="theme-color" content="#090e16" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/detective.css" />
+    <script type="module" src="/assets/detective.js"></script>
+  </head>
+  <body class="detective-page">
+    <a class="skip-link" href="#wave-lens">Skip to the interactive wave</a>
+    <header class="header wrap">
+      <a class="brand" href="https://spacetimemanifolds.com/"
+        ><span class="brand-orbit" aria-hidden="true">✳</span
+        ><span>SPACETIME<br />MANIFOLDS</span></a
+      >
+      <nav aria-label="Site navigation">
+        <a href="/">Waves &amp; Fields studio <span>↗</span></a
+        ><a href="/">← Back to the studio</a>
+      </nav>
+    </header>
+    <main class="wrap detective-main" id="main">
+      <section class="detective-intro">
+        <div>
+          <p class="eyebrow">
+            <span class="status-dot"></span> AN INTERACTIVE FIELD EXPEDITION
+          </p>
+          <h1>Wave <em>Detective.</em></h1>
+        </div>
+        <div>
+          <p>Change your perspective.<br />Then change what the waves do.</p>
+          <span class="intro-tag">TRACE → DEPTH → INTERFERENCE → PLAY</span>
+        </div>
+      </section>
+      <noscript
+        ><p class="no-script">
+          This experiment needs JavaScript for its wave drawings and game. The
+          explanations and model notes below remain readable.
+        </p></noscript
+      >
+      <nav class="lens-steps" aria-label="Explore the wave">
+        <button type="button" data-stage="0" aria-pressed="true">
+          <span>01</span><strong>Read the trace</strong
+          ><small>One component</small></button
+        ><button type="button" data-stage="1" aria-pressed="false">
+          <span>02</span><strong>Reveal the depth</strong
+          ><small>Rotating fields</small></button
+        ><button type="button" data-stage="2" aria-pressed="false">
+          <span>03</span><strong>Make interference</strong
+          ><small>Nodes &amp; loops</small></button
+        ><button type="button" data-stage="3" aria-pressed="false">
+          <span>04</span><strong>Play detective</strong
+          ><small>Three missions</small>
+        </button>
+      </nav>
+      <section class="lens-shell" id="wave-lens" aria-labelledby="lens-title">
+        <aside class="lens-story">
+          <p class="eyebrow" id="stage-kicker">01 / A FAMILIAR SILHOUETTE</p>
+          <h2 id="lens-title">One trace.<br /><em>Part of the story.</em></h2>
+          <p id="stage-description">
+            This sine curve plots one electric-field component along space. A
+            crest is a field value—not the path of a particle. What might a
+            second, hidden component reveal?
+          </p>
+          <div class="lens-equation">
+            <span class="eyebrow" id="formula-label"
+              >THE VISIBLE COMPONENT</span
+            >
+            <p class="math" id="stage-formula">Eᵧ = A sin(kz − ωt)</p>
+          </div>
+          <div class="insight">
+            <span aria-hidden="true">↳</span>
+            <p id="stage-insight">
+              A flat sine trace alone cannot tell you whether the full field is
+              linearly or circularly polarized.
+            </p>
+          </div>
+          <button type="button" class="button next-lens" id="next-lens">
+            Reveal the depth <span>→</span>
+          </button>
+        </aside>
+        <div class="lens-visual">
+          <div class="lens-topbar">
+            <div class="lens-legend" id="lens-legend">
+              <span><i class="dot cyan"></i>Eᵧ projection</span
+              ><span><i class="dot amber"></i>Inspection point</span>
+            </div>
+            <div class="motion-controls">
+              <button type="button" class="quiet-button" id="motion-toggle">
+                Pause motion</button
+              ><button
+                type="button"
+                class="quiet-button"
+                id="step-time"
+                aria-label="Pause and advance one quarter cycle"
+              >
+                +¼ cycle
+              </button>
+            </div>
+          </div>
+          <canvas
+            id="detective-canvas"
+            role="img"
+            aria-label="Animated sine-wave projection along the propagation axis. The amber marker identifies the inspection point."
+          ></canvas>
+          <div class="canvas-caption">
+            <span id="scene-caption"
+              >ONE INSTANT IN SPACE · THE PATTERN TRAVELS TO THE RIGHT</span
+            ><span>z / λ →</span>
+          </div>
+          <div class="lens-readout">
+            <div>
+              <span class="eyebrow" id="readout-label"
+                >AT THE INSPECTION POINT</span
+              ><strong id="probe-readout">Eᵧ / A = 0.000</strong>
+            </div>
+            <p id="readout-note">
+              The field oscillates at this location as time passes.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="lens-controls" aria-label="Wave controls">
+        <label for="camera-angle"
+          ><span>View angle <output id="camera-value">Flat trace</output></span
+          ><input
+            id="camera-angle"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+          /><span class="range-ends"
+            ><span>Flat projection</span><span>Oblique view</span></span
+          ></label
+        >
+        <label for="probe-position" id="probe-control"
+          ><span
+            >Inspect position z / λ <output id="probe-value">1.00</output></span
+          ><input
+            id="probe-position"
+            type="range"
+            min="0.15"
+            max="2.35"
+            step="0.01"
+            value="1"
+          /><span class="range-ends"
+            ><span>Follow the amber marker</span></span
+          ></label
+        >
+        <label for="roundness" id="roundness-control" hidden
+          ><span
+            >Second amplitude / A
+            <output id="roundness-value">1.00</output></span
+          ><input
+            id="roundness"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+          /><span class="range-ends"
+            ><span>Linear</span><span>Elliptical → circular</span></span
+          ></label
+        >
+        <label for="partner-phase" id="phase-control" hidden
+          ><span
+            >Second-wave phase
+            <output id="phase-control-value">180°</output></span
+          ><input
+            id="partner-phase"
+            type="range"
+            min="0"
+            max="360"
+            step="1"
+            value="180"
+          /><span class="range-ends"
+            ><span>0°</span><span>One full cycle · 360°</span></span
+          ></label
+        >
+        <label for="partner-amplitude" id="amplitude-control" hidden
+          ><span
+            >Second-wave amplitude / A
+            <output id="partner-amplitude-value">1.00</output></span
+          ><input
+            id="partner-amplitude"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+          /><span class="range-ends"
+            ><span>One wave only</span><span>Equal partners</span></span
+          ></label
+        >
+        <div class="direction-control" id="direction-control" hidden>
+          <span>Second wave travels</span>
+          <div class="segmented">
+            <button type="button" data-direction="1" aria-pressed="false">
+              With the first →</button
+            ><button type="button" data-direction="-1" aria-pressed="true">
+              Against it ←
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="mission-panel"
+        id="mission-panel"
+        aria-labelledby="mission-title"
+        hidden
+      >
+        <div class="mission-brief">
+          <p class="eyebrow" id="mission-kicker">MISSION 01 / 03</p>
+          <h2 id="mission-title">Find the quiet.</h2>
+          <p id="mission-description">
+            Adjust phase and amplitude to silence the receiver. It must stay
+            quiet throughout the entire cycle.
+          </p>
+          <div class="mission-actions">
+            <button type="button" class="button primary" id="test-pattern">
+              Test this pattern <span>→</span></button
+            ><button type="button" class="quiet-button" id="show-hint">
+              Show a clue
+            </button>
+          </div>
+          <p class="hint" id="mission-hint" hidden></p>
+        </div>
+        <div class="mission-dashboard">
+          <div class="mission-score">
+            <span class="eyebrow">EXPEDITION SCORE</span
+            ><strong
+              ><span id="total-score">0</span><small> / 300</small></strong
+            ><span id="mission-progress">0 of 3 missions solved</span>
+          </div>
+          <div id="target-readouts" class="target-readouts"></div>
+          <div
+            class="mission-feedback"
+            id="mission-feedback"
+            role="status"
+            aria-live="polite"
+          >
+            Tune the sliders, then test your pattern.
+          </div>
+          <button
+            type="button"
+            class="button next-mission"
+            id="next-mission"
+            hidden
+          >
+            Next mission <span>→</span>
+          </button>
+        </div>
+      </section>
+      <section class="field-notes" aria-labelledby="notes-title">
+        <div>
+          <p class="eyebrow">THREE PICTURES. THREE MEANINGS.</p>
+          <h2 id="notes-title">
+            What the loops<br /><em>are telling you.</em>
+          </h2>
+        </div>
+        <div class="note-grid">
+          <article>
+            <span class="note-number">01 / THE TRACE</span>
+            <h3>A projection</h3>
+            <p>
+              A sinusoid is one field component plotted against position at a
+              given instant. It is a useful view of the wave, but not a complete
+              three-dimensional description.
+            </p>
+          </article>
+          <article>
+            <span class="note-number">02 / THE HELIX</span>
+            <h3>A rotating field</h3>
+            <p>
+              Two perpendicular components, a quarter cycle apart, create
+              elliptical polarization. With equal amplitudes, the field vector
+              at one location traces a circle. Connecting field-vector tips
+              across space gives the helix.
+            </p>
+          </article>
+          <article>
+            <span class="note-number">03 / THE STANDING LOOPS</span>
+            <h3>Interference in place</h3>
+            <p>
+              Equal, oppositely traveling waves can create stationary nodes. The
+              translucent lobes show the maximum excursion over a full cycle.
+              They are an envelope, not physical hoops in space.
+            </p>
+          </article>
+        </div>
+      </section>
+      <div class="detective-notes">
+        <details>
+          <summary>The model, the game rules &amp; what is simplified</summary>
+          <p>
+            Position z is measured in wavelengths and field values are
+            normalized by amplitude A. Time is slowed for inspection. In the
+            polarization view, Eᵧ/A = sin(2πz − τ) and Eₓ/A = e cos(2πz − τ),
+            where e is the second-component ratio. The helix connects
+            field-vector tips at one instant. Its circular slices show the
+            vector’s possible directions over time. The magnetic field is
+            omitted from this view; this is not a photon trajectory.
+          </p>
+          <p>
+            The interference view returns to a single, shared linear
+            polarization. Its waves are y₁/A = sin(2πz − τ) and y₂/A = r
+            sin(d·2πz − τ + φ), where d = +1 or −1. Adding them gives a local
+            peak amplitude R/A = √[1 + r² + 2r cos((d − 1)2πz + φ)]. The white
+            trace is the instantaneous sum; the shaded envelope is ±R. Opposing
+            equal waves have stationary nodes separated by half a wavelength.
+            Co-propagating equal-frequency waves have the same combined
+            amplitude at every position.
+          </p>
+          <p>
+            The game always uses opposing waves. A target’s meter is R/(2A),
+            relative to the largest possible amplitude with two equal waves.
+            Marker brightness follows that meter; it is not a calculation of
+            electromagnetic energy density or net energy flux. A quiet target
+            must be at or below 4%; an active target at or above 98%. Scoring
+            evaluates the full-cycle amplitude, so pausing at a zero crossing
+            cannot solve a mission. Each target contributes equally, up to 100
+            points per mission. You can retry without a penalty. Progress lasts
+            for this visit.
+          </p>
+          <p>
+            The uniform-amplitude, one-dimensional waves have identical
+            frequency and coherent phase. No boundaries, damping, diffraction,
+            transient propagation, or measurement collapse are simulated. The
+            geometric transition changes the view; the interference stage
+            deliberately changes the physical setup.
+          </p>
+        </details>
+        <div class="reading">
+          <span class="eyebrow">FOLLOW THE PHYSICS</span
+          ><a
+            href="https://openstax.org/books/university-physics-volume-1/pages/16-6-standing-waves-and-resonance"
+            >Standing waves &amp; resonance · OpenStax ↗</a
+          ><a
+            href="https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization"
+            >Polarization · OpenStax ↗</a
+          ><a href="/">Continue to Fourier &amp; Maxwell’s equations →</a>
+        </div>
+      </div>
+    </main>
+    <footer class="footer wrap">
+      <a class="brand" href="https://spacetimemanifolds.com/"
+        >SPACETIME MANIFOLDS <span>↗</span></a
+      ><span>Change your perspective. Keep your curiosity.</span
+      ><a href="/">Back to the studio →</a>
+    </footer>
+  </body>
+</html>

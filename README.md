@@ -15,7 +15,7 @@ This repository owns only this site. It has no shared build, runtime, environmen
 
 ## Edit and preview
 
-Edit `public/index.html` and `public/assets/`. Run `npm run build` to validate the static assets, check JavaScript syntax, and run the numerical tests. Preview with `python -m http.server 4175 --directory public`. No external packages or font/CDN requests are required.
+Edit `public/index.html`, `public/wave-detective.html`, and `public/assets/`. Run `npm run build` to validate the static assets and page links, check JavaScript syntax, and run the numerical tests. Preview with `python scripts/serve.py`; this supports Vercel’s extensionless HTML routes at http://127.0.0.1:4175. No external packages or font/CDN requests are required.
 
 ## Waves & Fields studio
 
@@ -32,6 +32,14 @@ The homepage contains five interactive studies:
 The site labels its physical assumptions and links to MIT OpenCourseWare and OpenStax. The changing-flux demonstrations are quasistatic idealizations; the light wave is a vacuum plane-wave solution. Quantum coordinates are dimensionless, and the Gaussian is a snapshot at t = 0. Colors, field-line spacing, perspective, and animation rates are illustrative. The electric and magnetic fields in the light drawing use E and cB so they can share a visual amplitude scale.
 
 Animations pause when offscreen or when the page is hidden. The operating-system reduced-motion preference disables automatic motion, and each moving experiment has a pause control. Native keyboard-operable inputs, plot descriptions, and a live Fourier data table provide alternatives to the canvas graphics.
+
+## Wave Detective
+
+The linked `/wave-detective` page moves from a sine-component projection to a perspective polarization helix, then changes to a shared linear polarization for interference. A view-angle control and quarter-cycle step let visitors examine the geometry and stationary nodes. Standing-wave envelopes are explicitly distinguished from circular-polarization orbits.
+
+Three game missions ask visitors to cancel, reinforce, and jointly cancel/reinforce receivers by adjusting the second wave’s amplitude and phase. Scoring uses the analytic full-cycle amplitude, independent of animation time, frame rate, or the pause control. All missions have tested, attainable perfect solutions. Progress is held in memory for the visit, with replay available after completion.
+
+`interference.js` supplies the models and scoring; `detective.js` draws and operates the page. Added tests check polarization geometry, the standing-wave identity, envelope/RMS agreement, stationary nodes, puzzle solvability, and protection against a paused-frame scoring shortcut.
 
 ## Network
 

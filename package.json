@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "node --check public/assets/studio.js && node scripts/validate.mjs && npm test",
-    "test": "node --test tests/physics.test.mjs"
+    "build": "node --check public/assets/studio.js && node --check public/assets/detective.js && node scripts/validate.mjs && npm test",
+    "test": "node --test tests/physics.test.mjs tests/interference.test.mjs"
   }
 }

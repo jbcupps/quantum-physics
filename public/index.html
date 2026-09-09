@@ -13,6 +13,7 @@
     <link rel="canonical" href="https://quantum.spacetimemanifolds.com/" />
     <meta name="theme-color" content="#090e16" />
     <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/detective.css" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <script type="module" src="/assets/studio.js"></script>
   </head>
@@ -61,6 +62,38 @@
             ><span>Many waves. One signal.</span>
           </div>
         </div>
+      </section>
+      <section
+        class="detective-invitation wrap"
+        aria-label="Play Wave Detective"
+      >
+        <div class="mini-wave" aria-hidden="true">
+          <svg viewBox="0 0 110 65" fill="none">
+            <path
+              d="M2 34C14 2 23 2 34 34S56 66 67 34S89 2 108 34"
+              stroke="#70d6e7"
+              stroke-width="1.8"
+            />
+            <path
+              d="M2 34C14 58 23 58 34 34S56 10 67 34S89 58 108 34"
+              stroke="#b4a4f0"
+              stroke-width="1.2"
+              opacity=".6"
+            />
+            <path d="M2 34H108" stroke="#5b7484" stroke-dasharray="2 4" />
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">NEW EXPEDITION · THREE INTERFERENCE MISSIONS</p>
+          <h2>A sine wave. A new dimension.</h2>
+          <p>
+            Reveal the rotating field, discover standing loops, and learn to
+            control interference.
+          </p>
+        </div>
+        <a class="button" href="/wave-detective"
+          >Play Wave Detective <span>↗</span></a
+        >
       </section>
       <nav class="chapter-nav" aria-label="Experiments">
         <div class="wrap">
@@ -398,7 +431,9 @@
                 ><label for="field-time" id="field-time-control" hidden
                   ><span
                     >Cycle position
-                    <output id="field-time-value" aria-live="off">0°</output></span
+                    <output id="field-time-value" aria-live="off"
+                      >0°</output
+                    ></span
                   ><input
                     id="field-time"
                     type="range"
