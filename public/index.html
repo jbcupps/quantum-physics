@@ -1,3 +1,813 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quantum & electromagnetic | Spacetime Manifolds</title><meta name="description" content="Explore light, charge, waves, and the physics of the very small."><link rel="canonical" href="https://quantum.spacetimemanifolds.com/"><meta name="theme-color" content="#080d15"><link rel="stylesheet" href="/assets/site.css"></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="sp-header"><a class="sp-logo" href="https://spacetimemanifolds.com/">Spacetime Manifolds</a><nav class="sp-nav" aria-label="Physics sites"><a href="https://spacetimemanifolds.com/">Home</a><a href="https://theories.spacetimemanifolds.com/">Theories</a><a href="https://newtonian.spacetimemanifolds.com/">Newtonian</a><a href="https://relativity.spacetimemanifolds.com/">Relativity</a><a href="https://quantum.spacetimemanifolds.com/">Quantum &amp; fields</a></nav></header><main class="sp-main" id="main"><section class="coming-hero"><span class="build-notice">Building in progress</span><div class="equation-art" aria-hidden="true">E = hf</div><h1>Quantum & electromagnetic</h1><p class="intro">The invisible world, brought into view.</p><p>Explore light, charge, waves, and the physics of the very small. We’re building hands-on lessons and playful experiments for this corner of Spacetime Manifolds.</p><div class="sp-actions"><a class="sp-button primary" href="https://spacetimemanifolds.com/#launch-lab">Try the launch lab ↗</a><a class="sp-button" href="https://spacetimemanifolds.com/">Explore the physics map →</a></div></section><section class="coming-grid" aria-label="What’s coming"><article class="coming-card"><span>01 / COMING SOON</span><h2>Electric and magnetic fields</h2></article><article class="coming-card"><span>02 / COMING SOON</span><h2>Light, waves, and photons</h2></article><article class="coming-card"><span>03 / COMING SOON</span><h2>Quantum probability and interference</h2></article></section></main><footer class="sp-footer"><span>Spacetime Manifolds</span><span>Stay curious. Keep experimenting.</span></footer></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Waves & Fields — Quantum & Electromagnetic | Spacetime Manifolds
+    </title>
+    <meta
+      name="description"
+      content="A visual physics studio. Compose and separate Fourier waves, explore Maxwell’s equations, follow light, and uncover quantum uncertainty through interactive experiments."
+    />
+    <link rel="canonical" href="https://quantum.spacetimemanifolds.com/" />
+    <meta name="theme-color" content="#090e16" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <script type="module" src="/assets/studio.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to experiments</a>
+    <header class="header wrap">
+      <a class="brand" href="https://spacetimemanifolds.com/"
+        ><span class="brand-orbit" aria-hidden="true">✳</span
+        ><span>SPACETIME<br />MANIFOLDS</span></a
+      >
+      <nav aria-label="Physics sites">
+        <a href="https://spacetimemanifolds.com/"
+          >Physics atlas <span>↗</span></a
+        ><span class="nav-divider"></span
+        ><a href="#fourier" aria-current="page"
+          >Quantum &amp; electromagnetic</a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span> THE VISUAL PHYSICS STUDIO · VOL. 04
+          </p>
+          <h1 id="hero-title">Everything begins<br />with a <em>wave.</em></h1>
+          <p class="hero-intro">
+            From the anatomy of a signal to the structure of light. Make the
+            invisible tangible—one experiment at a time.
+          </p>
+          <a class="button primary" href="#fourier"
+            >Enter the wave lab <span>↓</span></a
+          >
+          <div class="hero-meta">
+            <span>05 interactive studies</span><span>Live mathematics</span
+            ><span>No prerequisites</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-top">
+            <span>SUPERPOSITION / FIELD STUDY</span><span>001 — ∞</span>
+          </div>
+          <canvas id="hero-canvas"></canvas>
+          <div class="art-bottom">
+            <span class="math">f(t) = Σ Aₙ sin(nωt + φₙ)</span
+            ><span>Many waves. One signal.</span>
+          </div>
+        </div>
+      </section>
+      <nav class="chapter-nav" aria-label="Experiments">
+        <div class="wrap">
+          <a href="#fourier"><span>01</span> Fourier lab</a
+          ><a href="#maxwell"><span>02</span> Maxwell’s atlas</a
+          ><a href="#light"><span>03</span> Anatomy of light</a
+          ><a href="#polarization"><span>04</span> Polarization</a
+          ><a href="#quantum"><span>05</span> Quantum packets</a>
+        </div>
+      </nav>
+      <div class="wrap experiments">
+        <noscript
+          ><p class="no-script">
+            Enable JavaScript to operate the interactive plots. The equations
+            and explanations below remain available.
+          </p></noscript
+        >
+
+        <section
+          class="experiment"
+          id="fourier"
+          aria-labelledby="fourier-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01 / THE ANATOMY OF A SIGNAL</p>
+              <h2 id="fourier-title">
+                Many waves.<br /><em>One signature.</em>
+              </h2>
+            </div>
+            <p>
+              A complicated wave is a conversation between simple ones. Add
+              their amplitudes at every instant to build a signal. Fourier
+              analysis lets you hear each voice again.
+            </p>
+          </div>
+          <div class="lab-card">
+            <div class="lab-toolbar">
+              <div class="segmented" aria-label="Wave presets">
+                <button type="button" data-preset="complex" aria-pressed="true">
+                  Complex wave</button
+                ><button
+                  type="button"
+                  data-preset="square"
+                  aria-pressed="false"
+                >
+                  Square wave</button
+                ><button
+                  type="button"
+                  data-preset="sawtooth"
+                  aria-pressed="false"
+                >
+                  Sawtooth</button
+                ><button type="button" data-preset="pure" aria-pressed="false">
+                  Pure tone
+                </button>
+              </div>
+              <span class="toolbar-note">ONE PERIOD · 512 SAMPLES</span>
+            </div>
+            <div class="wave-pair">
+              <figure class="plot-panel">
+                <figcaption>
+                  <span><i class="dot cyan"></i> THE INGREDIENTS</span
+                  ><span id="component-count">4 active harmonics</span>
+                </figcaption>
+                <canvas
+                  id="components-canvas"
+                  role="img"
+                  aria-label="Separate sine waves for every active harmonic. Exact amplitudes and phases are available in the data table below."
+                ></canvas>
+                <div class="plot-foot">
+                  <span>Each row uses the same amplitude scale</span
+                  ><span>time / T →</span>
+                </div>
+              </figure>
+              <figure class="plot-panel">
+                <figcaption>
+                  <span><i class="dot amber"></i> THE COMBINED SIGNAL</span
+                  ><span id="fourier-shape">Complex wave</span>
+                </figcaption>
+                <canvas
+                  id="sum-canvas"
+                  role="img"
+                  aria-label="The sum of the component waves, with the filtered reconstruction overlaid in cyan."
+                ></canvas>
+                <div class="plot-foot">
+                  <span
+                    ><i class="line-key amber"></i> Full signal
+                    <i class="line-key cyan dashed"></i> Reconstruction</span
+                  ><span>time / T →</span>
+                </div>
+              </figure>
+            </div>
+            <div class="composer-controls">
+              <label
+                >Inspect harmonic<select id="harmonic">
+                  <option value="1">1 · fundamental</option>
+                  <option value="2">2 · second harmonic</option>
+                  <option value="3">3 · third harmonic</option>
+                  <option value="4">4 · fourth harmonic</option>
+                  <option value="5">5 · fifth harmonic</option>
+                  <option value="6">6 · sixth harmonic</option>
+                  <option value="7">7 · seventh harmonic</option>
+                  <option value="8">8 · eighth harmonic</option>
+                  <option value="9">9 · ninth harmonic</option>
+                </select></label
+              ><label for="amplitude"
+                ><span
+                  >Amplitude <output id="amplitude-value">0.80</output></span
+                ><input
+                  id="amplitude"
+                  type="range"
+                  min="0"
+                  max="1.4"
+                  step="0.01"
+                  value="0.8" /></label
+              ><label for="phase"
+                ><span>Phase <output id="phase-value">0°</output></span
+                ><input
+                  id="phase"
+                  type="range"
+                  min="-180"
+                  max="180"
+                  step="1"
+                  value="0"
+              /></label>
+            </div>
+            <div class="analysis-grid">
+              <div class="spectrum-block">
+                <div class="subheading">
+                  <h3>Now take it apart.</h3>
+                  <span class="pill">FOURIER ANALYSIS</span>
+                </div>
+                <p>
+                  The spectrum below is recovered from the sampled combined
+                  signal. Each bar reveals a frequency hiding in the mix.
+                </p>
+                <canvas
+                  id="spectrum-canvas"
+                  role="img"
+                  aria-label="Measured Fourier amplitudes at harmonics one through nine. The selected harmonic is highlighted."
+                ></canvas>
+              </div>
+              <div class="reconstruction">
+                <p class="eyebrow">A FREQUENCY FILTER, IN YOUR HANDS</p>
+                <h3>What happens when<br />you leave waves out?</h3>
+                <label for="cutoff"
+                  ><span
+                    >Keep harmonics 1–<output id="cutoff-value">9</output></span
+                  ><input id="cutoff" type="range" min="1" max="9" value="9"
+                /></label>
+                <div class="metric">
+                  <strong id="energy-value">100<span>%</span></strong
+                  ><span>signal energy retained</span>
+                </div>
+                <p id="filter-note">
+                  All nine frequencies are available to the reconstruction.
+                </p>
+              </div>
+            </div>
+            <div class="equation-strip">
+              <div>
+                <span class="eyebrow">SYNTHESIZE</span>
+                <div class="math">f(t) = Σ Aₙ sin(2πnt/T + φₙ)</div>
+              </div>
+              <div>
+                <span class="eyebrow"
+                  >RECOVER HARMONIC <span id="projection-n">1</span></span
+                >
+                <div class="math">Aₙ = √(aₙ² + bₙ²)</div>
+                <span class="coefficient-readout" id="coefficients"
+                  >a₁ = 0.000 · b₁ = 0.800</span
+                >
+              </div>
+              <div>
+                <span class="eyebrow">PHASE</span>
+                <div class="math">φₙ = atan2(aₙ, bₙ)</div>
+                <span class="coefficient-readout" id="measured-phase"
+                  >0.0° recovered</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="study-notes">
+            <p>
+              <strong>Try this:</strong> Choose Square wave, then lower the
+              filter to 1. Add the odd harmonics back one by one. The corners
+              sharpen; the small overshoots near the jumps are the Gibbs
+              phenomenon.
+            </p>
+            <details>
+              <summary>Inside the mathematics &amp; live data</summary>
+              <p>
+                We use a periodic, zero-mean signal with nine possible
+                harmonics. A 512-point discrete Fourier transform measures aₙ =
+                (2/N)Σ fⱼ cos(2πnj/N) and bₙ = (2/N)Σ fⱼ sin(2πnj/N).
+                Orthogonality separates the frequencies. For our sine-plus-phase
+                convention, aₙ = Aₙ sin φₙ and bₙ = Aₙ cos φₙ. Energy is the
+                period average of f², proportional to Σ Aₙ². The dashed curve
+                keeps only frequencies at or below the selected cutoff.
+              </p>
+              <p>
+                Square and sawtooth presets are truncated Fourier series, not
+                exact discontinuous waves. Amplitudes are dimensionless; the
+                fundamental frequency is 1/T.
+              </p>
+              <div class="table-scroll">
+                <table>
+                  <caption>
+                    Recovered coefficients from the combined signal
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Harmonic</th>
+                      <th>Amplitude</th>
+                      <th>Phase</th>
+                      <th>In filter</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fourier-data"></tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section
+          class="experiment"
+          id="maxwell"
+          aria-labelledby="maxwell-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / FOUR LAWS. ONE CONNECTED WORLD.</p>
+              <h2 id="maxwell-title">
+                The field guide.<br /><em>Maxwell’s equations.</em>
+              </h2>
+            </div>
+            <p>
+              Charges shape electric fields. Magnetic fields have no isolated
+              sources. Changing fields circulate around one another. Together,
+              these four laws describe classical electromagnetism.
+            </p>
+          </div>
+          <div class="maxwell-grid">
+            <div
+              class="law-list"
+              role="group"
+              aria-label="Choose a Maxwell equation"
+            >
+              <button
+                type="button"
+                class="law-button"
+                data-law="electric"
+                aria-pressed="true"
+              >
+                <span class="law-kicker">I <span>ELECTRIC FLUX</span></span>
+                <h3>Charge is a source.</h3>
+                <span class="math">∯ E · dA = Q<sub>enc</sub> / ε₀</span
+                ><span class="law-caption"
+                  >Gauss’s law for electricity <span>↗</span></span
+                >
+              </button>
+              <button
+                type="button"
+                class="law-button"
+                data-law="magnetic"
+                aria-pressed="false"
+              >
+                <span class="law-kicker">II <span>MAGNETIC FLUX</span></span>
+                <h3>No loose ends.</h3>
+                <span class="math">∯ B · dA = 0</span
+                ><span class="law-caption"
+                  >Gauss’s law for magnetism <span>↗</span></span
+                >
+              </button>
+              <button
+                type="button"
+                class="law-button"
+                data-law="faraday"
+                aria-pressed="false"
+              >
+                <span class="law-kicker">III <span>INDUCTION</span></span>
+                <h3>Change B. Curl E.</h3>
+                <span class="math">∮ E · dl = −dΦ<sub>B</sub> / dt</span
+                ><span class="law-caption">Faraday’s law <span>↗</span></span>
+              </button>
+              <button
+                type="button"
+                class="law-button"
+                data-law="ampere"
+                aria-pressed="false"
+              >
+                <span class="law-kicker"
+                  >IV <span>CURRENT &amp; CHANGING FIELDS</span></span
+                >
+                <h3>Change E. Curl B.</h3>
+                <span class="math"
+                  >∮ B · dl = μ₀I + μ₀ε₀ dΦ<sub>E</sub> / dt</span
+                ><span class="law-caption"
+                  >Ampère–Maxwell law <span>↗</span></span
+                >
+              </button>
+            </div>
+            <div class="lab-card field-lab">
+              <div class="lab-toolbar">
+                <span class="eyebrow" id="field-title"
+                  >A POINT CHARGE IN SPACE</span
+                ><button
+                  type="button"
+                  class="quiet-button"
+                  id="field-play"
+                  disabled
+                >
+                  Static field
+                </button>
+              </div>
+              <canvas
+                id="field-canvas"
+                role="img"
+                aria-label="Selected Maxwell law illustrated with field lines, direction arrows, and a closed surface or circular path."
+              ></canvas>
+              <div class="field-controls">
+                <label for="field-strength"
+                  ><span id="field-control-label"
+                    >Charge Q
+                    <output id="field-strength-value">+1.0 nC</output></span
+                  ><input
+                    id="field-strength"
+                    type="range"
+                    min="-3"
+                    max="3"
+                    step="0.1"
+                    value="1" /></label
+                ><label for="field-time" id="field-time-control" hidden
+                  ><span
+                    >Cycle position
+                    <output id="field-time-value" aria-live="off">0°</output></span
+                  ><input
+                    id="field-time"
+                    type="range"
+                    min="0"
+                    max="360"
+                    step="1"
+                    value="0"
+                /></label>
+              </div>
+              <div class="field-result">
+                <span class="eyebrow" id="field-result-label"
+                  >FLUX THROUGH THE SPHERE</span
+                ><strong class="math" id="field-result">112.94 N·m²/C</strong>
+                <p id="field-explanation">
+                  Field lines point away from a positive charge and toward a
+                  negative one. The dashed circle is a section through a
+                  spherical Gaussian surface. Every enclosing sphere has the
+                  same total electric flux.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="study-notes">
+            <p>
+              <strong>The connection:</strong> The first two laws constrain flux
+              through closed surfaces. The other two relate circulation around a
+              loop to current and changing flux through its spanning surface.
+            </p>
+            <details>
+              <summary>Geometry, units &amp; model assumptions</summary>
+              <p>
+                The equations here use SI units in vacuum. E is electric field,
+                B magnetic field, Q enclosed charge, I enclosed conduction
+                current, and Φ the flux through a surface. ε₀ and μ₀ are the
+                vacuum constants. A closed-surface integral is marked ∯; a
+                closed-loop integral is marked ∮.
+              </p>
+              <p>
+                The electric view is a cross-section of an isolated point
+                charge. The magnetic view shows closed field lines around a long
+                straight wire; the rectangular surface section has as much
+                inward as outward magnetic flux. Faraday’s view assumes a
+                prescribed, spatially uniform B(t) within a disk of radius R = 1
+                m. At its rim, Eθ = −(R/2)dB/dt. Ampère–Maxwell’s view looks
+                along the axis of an ideal circular capacitor gap with uniform
+                E(t); I = 0 in the gap and Bθ = (μ₀ε₀R/2)dE/dt at the rim. Both
+                changing-field examples are local, quasistatic idealizations
+                that neglect edge effects; they are not full radiation
+                solutions. Their physical cycle is 1 second, animated more
+                slowly. Field-line spacing and arrows are illustrative.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section class="experiment" id="light" aria-labelledby="light-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">03 / A SELF-CONSISTENT TRAVELING WAVE</p>
+              <h2 id="light-title">
+                This is what<br /><em>light is doing.</em>
+              </h2>
+            </div>
+            <p>
+              An electric field and a magnetic field oscillate in step, at right
+              angles. Their shared pattern travels through vacuum at the speed
+              of light—a wave solution of Maxwell’s equations.
+            </p>
+          </div>
+          <div class="lab-card light-lab">
+            <div class="lab-toolbar">
+              <div class="legend">
+                <span><i class="dot cyan"></i> Electric field E</span
+                ><span><i class="dot coral"></i> Magnetic field cB</span
+                ><span><i class="dot white"></i> Travel +z</span>
+              </div>
+              <button type="button" class="quiet-button" id="light-play">
+                Pause motion
+              </button>
+            </div>
+            <canvas
+              id="light-canvas"
+              role="img"
+              aria-label="Perspective plot of electric and magnetic waves oscillating in phase in perpendicular planes, traveling in the positive z direction."
+            ></canvas>
+            <div class="light-bottom">
+              <div class="light-control">
+                <label for="wavelength"
+                  ><span
+                    >Wavelength
+                    <output id="wavelength-value">550 nm</output></span
+                  ><input
+                    class="rainbow-range"
+                    id="wavelength"
+                    type="range"
+                    min="400"
+                    max="700"
+                    step="1"
+                    value="550"
+                /></label>
+                <p>
+                  Slide from violet to red. Longer wavelength means lower
+                  frequency and less energy per photon.
+                </p>
+              </div>
+              <div class="metric">
+                <strong id="frequency-value">545<span>THz</span></strong
+                ><span>frequency · f = c / λ</span>
+              </div>
+              <div class="metric">
+                <strong id="photon-value">2.25<span>eV</span></strong
+                ><span>photon energy · E<sub>γ</sub> = hf</span>
+              </div>
+            </div>
+            <div class="equation-strip">
+              <div>
+                <span class="eyebrow">ELECTRIC</span
+                ><span class="math">E<sub>x</sub> = E₀ cos(kz − ωt)</span>
+              </div>
+              <div>
+                <span class="eyebrow">MAGNETIC</span
+                ><span class="math">B<sub>y</sub> = (E₀/c) cos(kz − ωt)</span>
+              </div>
+              <div>
+                <span class="eyebrow">LINKED BY MAXWELL</span
+                ><span class="math">c = 1 / √(μ₀ε₀)</span>
+              </div>
+            </div>
+          </div>
+          <div class="study-notes">
+            <p>
+              <strong>Look at a crest:</strong> Both fields reach their maximum
+              together. E × B points along the direction of energy flow.
+              Changing the wavelength changes both frequency and photon energy.
+            </p>
+            <details>
+              <summary>What the drawing represents</summary>
+              <p>
+                This is a linearly polarized plane wave in vacuum. It shows
+                field values along a line, not a material ribbon moving through
+                space. Cyan is E and coral is cB, so the drawn amplitudes match
+                even though E and B have different units. Time is slowed
+                enormously, and the axes are diagrammatic. k = 2π/λ, ω = 2πf, c
+                = 299,792,458 m/s. The photon readout gives energy per photon,
+                not total beam intensity; this classical field picture does not
+                visualize an individual photon.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section
+          class="experiment"
+          id="polarization"
+          aria-labelledby="polarization-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">04 / LIGHT HAS A DIRECTION</p>
+              <h2 id="polarization-title">
+                A different angle.<br /><em>A different outcome.</em>
+              </h2>
+            </div>
+            <p>
+              A polarizer passes the electric-field component along its axis.
+              Rotate the analyzer and watch the projection—and the transmitted
+              intensity—change.
+            </p>
+          </div>
+          <div class="lab-card polarization-layout">
+            <div class="polar-visual">
+              <div class="lab-toolbar">
+                <span class="eyebrow">LOOKING INTO THE BEAM</span
+                ><span class="toolbar-note">IDEAL LINEAR POLARIZER</span>
+              </div>
+              <canvas
+                id="polar-canvas"
+                role="img"
+                aria-label="Cross-section showing the incoming electric-field direction and its projection onto the analyzer axis, alongside a beam transmission diagram."
+              ></canvas>
+            </div>
+            <div class="polar-controls">
+              <p class="eyebrow">MALUS’S LAW</p>
+              <div class="large-equation math">I / I₀ = cos² θ</div>
+              <label for="polar-angle"
+                ><span
+                  >Incoming polarization
+                  <output id="polar-angle-value">20°</output></span
+                ><input
+                  id="polar-angle"
+                  type="range"
+                  min="0"
+                  max="180"
+                  value="20" /></label
+              ><label for="analyzer-angle"
+                ><span
+                  >Analyzer axis
+                  <output id="analyzer-angle-value">65°</output></span
+                ><input
+                  id="analyzer-angle"
+                  type="range"
+                  min="0"
+                  max="180"
+                  value="65"
+              /></label>
+              <div class="transmission">
+                <div>
+                  <span>Angle between axes</span
+                  ><strong id="angle-difference">45°</strong>
+                </div>
+                <div class="intensity-track">
+                  <span id="intensity-fill"></span>
+                </div>
+                <div>
+                  <span>Transmitted intensity</span
+                  ><strong id="intensity-value">50.0%</strong>
+                </div>
+              </div>
+              <button type="button" class="button" id="cross-polarizers">
+                Cross the polarizers <span>↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="study-notes">
+            <p>
+              <strong>The quantum connection:</strong> For a photon prepared in
+              this linear polarization, cos² θ is also its probability of
+              passing an ideal analyzer. It does not mean that a fraction of one
+              photon emerges.
+            </p>
+            <details>
+              <summary>Why the intensity is squared</summary>
+              <p>
+                The transmitted field amplitude is E₀ cos θ. Intensity is
+                proportional to the time average of the field squared, giving I
+                = I₀ cos² θ. I₀ here is the intensity of an already linearly
+                polarized input beam; the one-half factor for initially
+                unpolarized light is not part of this example. Directions are
+                measured counterclockwise from the horizontal and polarization
+                axes repeat every 180°.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section
+          class="experiment"
+          id="quantum"
+          aria-labelledby="quantum-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">
+                05 / THE FOURIER THREAD INTO QUANTUM PHYSICS
+              </p>
+              <h2 id="quantum-title">
+                More wavelengths.<br /><em>Less uncertainty in place.</em>
+              </h2>
+            </div>
+            <p>
+              A single wavelength spreads everywhere. Superpose a range of wave
+              numbers and a localized packet emerges. Squeezing its position
+              distribution broadens its momentum distribution.
+            </p>
+          </div>
+          <div class="lab-card packet-lab">
+            <div class="lab-toolbar">
+              <span class="eyebrow">A MINIMUM-UNCERTAINTY GAUSSIAN · t = 0</span
+              ><span class="pill">Δx Δp = ℏ / 2</span>
+            </div>
+            <div class="wave-pair">
+              <figure class="plot-panel">
+                <figcaption>
+                  <span
+                    ><i class="dot lavender"></i> WAVE-NUMBER DISTRIBUTION</span
+                  ><span>Momentum space</span>
+                </figcaption>
+                <canvas
+                  id="momentum-canvas"
+                  role="img"
+                  aria-label="Normalized Gaussian probability density in wave number k. Shaded band marks one standard deviation around the mean."
+                ></canvas>
+                <div class="plot-foot">
+                  <span>Probability density |φ(k)|²</span
+                  ><span>wave number k →</span>
+                </div>
+              </figure>
+              <figure class="plot-panel">
+                <figcaption>
+                  <span><i class="dot amber"></i> THE LOCALIZED PACKET</span
+                  ><span>Position space</span>
+                </figcaption>
+                <canvas
+                  id="position-canvas"
+                  role="img"
+                  aria-label="Position probability density in amber with the real part of the wavefunction in cyan. Shaded band marks one standard deviation about the center."
+                ></canvas>
+                <div class="plot-foot">
+                  <span
+                    ><i class="line-key amber"></i> |ψ(x)|²
+                    <i class="line-key cyan"></i> Re ψ(x)</span
+                  ><span>position x →</span>
+                </div>
+              </figure>
+            </div>
+            <div class="packet-controls">
+              <label for="spread"
+                ><span
+                  >Wave-number spread Δk
+                  <output id="spread-value">0.70</output></span
+                ><input
+                  id="spread"
+                  type="range"
+                  min="0.35"
+                  max="1.8"
+                  step="0.01"
+                  value="0.70"
+                /><span class="range-ends"
+                  ><span>Fewer wave numbers</span
+                  ><span>More wave numbers</span></span
+                ></label
+              >
+              <div class="metric">
+                <strong id="position-spread">0.714</strong
+                ><span>position spread Δx</span>
+              </div>
+              <div class="metric">
+                <strong>0.500<span>ℏ</span></strong
+                ><span>Δx × Δp, always</span>
+              </div>
+            </div>
+            <div class="equation-strip">
+              <div>
+                <span class="eyebrow">FOURIER PAIR</span>
+                <div class="math">ψ(x) ∝ ∫ φ(k)e<sup>ikx</sup> dk</div>
+              </div>
+              <div>
+                <span class="eyebrow">MOMENTUM</span>
+                <div class="math">p = ℏk · Δp = ℏΔk</div>
+              </div>
+              <div>
+                <span class="eyebrow">GAUSSIAN WIDTH</span>
+                <div class="math">Δx = 1 / (2Δk)</div>
+              </div>
+            </div>
+          </div>
+          <div class="study-notes">
+            <p>
+              <strong>Read the amber curve:</strong> |ψ|² is probability
+              density; probabilities come from areas under it. The oscillating
+              cyan curve is the real part of a complex wavefunction, not the
+              particle’s path.
+            </p>
+            <details>
+              <summary>Normalization &amp; the uncertainty principle</summary>
+              <p>
+                These are dimensionless conjugate coordinates x and k with a
+                fixed mean wave number k₀ = 5. The plotted Gaussian densities
+                each integrate to 1. Δ denotes standard deviation, and the
+                shaded bands mark ±1Δ. The real-space density is √(2/π) Δk
+                exp(−2Δk²x²); the complex amplitude is proportional to
+                exp(−Δk²x²) exp(ik₀x). The distributions use independent
+                vertical scales, labeled on each plot. This is a snapshot at t =
+                0, with no time evolution or measurement collapse simulated.
+              </p>
+              <p>
+                All states satisfy Δx Δp ≥ ℏ/2. This unchirped Gaussian reaches
+                equality. The relation comes from the wavefunction’s Fourier
+                structure, rather than an imperfection in a measuring device.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section class="further-reading" aria-labelledby="sources-title">
+          <div>
+            <p class="eyebrow">KEEP FOLLOWING THE THREAD</p>
+            <h2 id="sources-title">Wonder, with a foundation.</h2>
+            <p>
+              Interactive models simplify the world. These references take you
+              into the complete mathematics.
+            </p>
+          </div>
+          <div class="source-links">
+            <a
+              href="https://ocw.mit.edu/ans7870/18/18.013a/textbook/HTML/chapter30/section08.html"
+              >Fourier series <span>MIT OpenCourseWare ↗</span></a
+            ><a
+              href="https://openstax.org/books/university-physics-volume-2/pages/16-1-maxwells-equations-and-electromagnetic-waves"
+              >Maxwell’s equations &amp; light
+              <span>OpenStax · University Physics ↗</span></a
+            ><a
+              href="https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization"
+              >Polarization &amp; Malus’s law
+              <span>OpenStax · University Physics ↗</span></a
+            ><a
+              href="https://openstax.org/books/university-physics-volume-3/pages/7-2-the-heisenberg-uncertainty-principle"
+              >Quantum uncertainty
+              <span>OpenStax · University Physics ↗</span></a
+            >
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer wrap">
+      <a class="brand" href="https://spacetimemanifolds.com/"
+        >SPACETIME MANIFOLDS <span>↗</span></a
+      ><span>A little intuition. A larger universe.</span
+      ><a href="#main">Back to the beginning ↑</a>
+    </footer>
+  </body>
+</html>

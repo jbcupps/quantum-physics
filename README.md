@@ -15,7 +15,23 @@ This repository owns only this site. It has no shared build, runtime, environmen
 
 ## Edit and preview
 
-Edit public/index.html and public/assets/. Run npm run build to validate. Preview with python -m http.server 4173 --directory public.
+Edit `public/index.html` and `public/assets/`. Run `npm run build` to validate the static assets, check JavaScript syntax, and run the numerical tests. Preview with `python -m http.server 4175 --directory public`. No external packages or font/CDN requests are required.
+
+## Waves & Fields studio
+
+The homepage contains five interactive studies:
+
+1. **Fourier lab** — nine editable harmonics, four presets, a 512-sample Fourier decomposition, and a low-pass reconstruction with measured energy retention.
+2. **Maxwell’s atlas** — four selectable laws with a signed point charge, circular magnetic field lines, Faraday induction, and displacement current inside a capacitor gap.
+3. **Anatomy of light** — a perspective vacuum plane wave with perpendicular E and B fields, a wavelength control, frequency, and photon energy.
+4. **Polarization** — field-vector projection through an ideal analyzer and Malus-law transmission.
+5. **Quantum packets** — a normalized Gaussian Fourier pair showing the reciprocal position and momentum widths.
+
+`public/assets/physics.js` contains the numerical models; `studio.js` handles controls and canvas rendering. Tests check Fourier recovery and Parseval energy, flux/circulation laws, plane-wave translation, Malus’s law, and Gaussian normalization/variances. Build failures stop deployment.
+
+The site labels its physical assumptions and links to MIT OpenCourseWare and OpenStax. The changing-flux demonstrations are quasistatic idealizations; the light wave is a vacuum plane-wave solution. Quantum coordinates are dimensionless, and the Gaussian is a snapshot at t = 0. Colors, field-line spacing, perspective, and animation rates are illustrative. The electric and magnetic fields in the light drawing use E and cB so they can share a visual amplitude scale.
+
+Animations pause when offscreen or when the page is hidden. The operating-system reduced-motion preference disables automatic motion, and each moving experiment has a pause control. Native keyboard-operable inputs, plot descriptions, and a live Fourier data table provide alternatives to the canvas graphics.
 
 ## Network
 
@@ -25,4 +41,4 @@ Edit public/index.html and public/assets/. Run npm run build to validate. Previe
 - Relativity: https://relativity.spacetimemanifolds.com/ (relativity-physics)
 - Quantum and electromagnetism: https://quantum.spacetimemanifolds.com/ (quantum-physics)
 
-The landing page and launch game were adapted from the existing Wireframe work. The game assumes uniform Earth gravity, no air resistance, and level ground. Scoring uses the analytic landing time, independent of frame rate.
+The main site's launch game is managed in the separate `spacetimemanifolds` repository.
