@@ -1,0 +1,8 @@
+{
+  "name": "quantum-physics",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/validate.mjs"
+  }
+}
